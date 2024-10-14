@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="cust.return.customerproductreturn.controller.ReturnProduct"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" xmlns:u="sap.ui.unified">
+
+    <VBox >
+        <Panel headerText="Upload File and Add Notes" >
+            <content>
+                <u:FileUploader
+                    id="fileUploader"
+                    width="100%"
+                    multiple="false"
+                    placeholder="Choose a file for uploading..."/>
+                <TextArea
+                    id="noteInput"
+                    width="100%"
+                    placeholder="Add your notes here..."
+                    rows="4"/>
+                <Button
+                    text="Upload"
+                    press="onFileUpload"/>
+            </content>
+        </Panel>
+
+        <Panel headerText="Uploaded Files and Notes" >
+            <content>
+                <List
+                    items="{fileModel>/files}"
+                    width="100%">
+                    <items>
+                      <StandardListItem
+                          title="{fileModel>name}"
+                          description="{fileModel>notes}"
+                          icon="{fileModel>content}">
+                          
+                      </StandardListItem>
+                    </items>
+                </List>
+            </content>
+        </Panel>
+    </VBox>
+</mvc:View>
